@@ -1,0 +1,54 @@
+ACTOR Crispin 19141 
+{
+	Health 2000
+	GibHealth 5
+	Radius 20
+	Height 56
+	Speed 20
+	PainChance 5
+	SeeSound ""
+	ATTACKSOUND "weapons/gun"
+	//PainSound ""
+	//DeathSound ""
+	//ActiveSound ""
+	Obituary "%o you die for crispin"
+	+FLOORCLIP
+	//+FRIENDLY
+	+JUMPDOWN
+	
+	States{
+		Spawn:
+			CRIP A 5 A_Look
+			Loop
+		See:
+			CRIP BBCC 4 A_Chase
+			Loop
+		Missile:
+			CRIP E 7 A_FaceTarget
+			CRIP F 2 A_AlertMonsters
+			CRIP F 8 BRIGHT A_CustomBulletAttack(4.5,5.5,1,3,"BulletPuff")
+			CRIP F 2 A_AlertMonsters
+			CRIP F 8 BRIGHT A_CustomBulletAttack(4.5,5.5,1,3,"BulletPuff")
+			CRIP F 2 A_AlertMonsters
+			CRIP F 8 BRIGHT A_CustomBulletAttack(4.5,5.5,1,3,"BulletPuff")
+			CRIP F 2 A_AlertMonsters
+			CRIP F 8 BRIGHT A_CustomBulletAttack(4.5,5.5,1,3,"BulletPuff")
+			CRIP F 2 A_AlertMonsters
+			CRIP F 8 BRIGHT A_CustomBulletAttack(4.5,5.5,1,3,"BulletPuff")
+			CRIP E 3
+			Goto See
+	
+		Pain:
+			CRIP G 4
+			CRIP G 4 A_Pain
+			Goto See
+			
+		Death:
+			CRIP G 5
+			CRIP G 5 A_XScream
+			CRIP H 5 A_NoBlocking
+			CRIP J 5
+			CRIP K -1
+			Stop
+	}
+}

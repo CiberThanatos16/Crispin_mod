@@ -1,0 +1,11 @@
+DoomEdNums
+    {
+        19141 = "Crispin"
+    }
+	
+map MAP01 "TEST MAP"
+{
+    sky1 = "SKY2", 0
+    cluster = 1
+	music = "SONG"
+}
